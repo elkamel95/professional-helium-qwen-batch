@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: professional-helium-qwen-batch
+  datasource:
+    url: jdbc:h2:mem:batchdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+
+app:
+  input-dir: C:/projet/input
+  processing-dir: C:/projet/processing
+  output-dir: C:/projet/output
+  error-dir: C:/projet/error
+  archive-dir: C:/projet/archive
+  poller-delay-ms: 5000
+  chunk-size: 100
+  local-threshold-score: 25
+
+qwen:
+  api-key: sk-c45cc11731034067a84e94fae50efae4
+  base-url: https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+  model: qwen-turbo
+  temperature: 0.2
+  timeout-seconds: 60
